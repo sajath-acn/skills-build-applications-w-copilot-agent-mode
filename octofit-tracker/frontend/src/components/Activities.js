@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
-  const endpoint = `${process.env.REACT_APP_CODESPACE_URL}/api/activities/`;
+  const endpoint = `${window.REACT_APP_CODESPACE_URL}/api/activities/`;
 
   useEffect(() => {
     console.log('Fetching Activities from:', endpoint);

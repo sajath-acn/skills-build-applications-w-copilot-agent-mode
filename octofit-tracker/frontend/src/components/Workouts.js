@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);
-  const endpoint = `${process.env.REACT_APP_CODESPACE_URL}/api/workouts/`;
+  const endpoint = `${window.REACT_APP_CODESPACE_URL}/api/workouts/`;
 
   useEffect(() => {
     console.log('Fetching Workouts from:', endpoint);
