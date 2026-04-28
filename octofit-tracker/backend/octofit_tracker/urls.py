@@ -19,6 +19,11 @@ from rest_framework import routers
 import os
 from . import views
 
+from django.http import HttpResponse
+
+def root_view(request):
+    return HttpResponse("<h2>Welcome to the Octofit Tracker Backend API. Visit <a href='/api/'>/api/</a> for the API root.</h2>")
+
 
 codespace_name = os.environ.get('CODESPACE_NAME')
 if codespace_name:
@@ -54,6 +59,7 @@ def api_root(request, format=None):
 from django.urls import re_path
 
 urlpatterns = [
+    path('', root_view, name='root'),
     path('admin/', admin.site.urls),
     re_path(r'^api/$', api_root, name='api-root'),
     path('api/', include(router.urls)),
