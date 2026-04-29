@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const endpoint = `${window.REACT_APP_CODESPACE_URL}/api/teams/`;
+  const codespaceName = process.env.REACT_APP_CODESPACE_NAME;
+  const endpoint = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/teams/`
+    : 'http://localhost:8000/api/teams/';
 
   useEffect(() => {
     console.log('Fetching Teams from:', endpoint);
